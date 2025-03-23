@@ -1,0 +1,343 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="ClearVision - Revolutionizing Vision with AI-Powered Insights. Unlock the power of AI in Computer Vision.">
+    <title>ClearVision - Advanced AI Vision</title>
+    <!-- Favicon -->
+    <link rel="icon" href="favicon.png" type="image/png">
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- GSAP CDN -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <!-- Font Awesome Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <style>
+        /* Clean, transparent design */
+        .text-glow {
+            text-shadow: 0 0 10px rgba(255, 255, 255, 0.7);
+        }
+        
+        .blue-glow {
+            text-shadow: 0 0 10px rgba(59, 130, 246, 0.7);
+        }
+        
+        /* Transparent button */
+        .transparent-button {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.5);
+            color: white;
+            transition: all 0.3s ease;
+        }
+        
+        .transparent-button:hover {
+            border-color: rgba(255, 255, 255, 0.8);
+        }
+        
+        /* Custom scrollbar for the chat */
+        #chatbox::-webkit-scrollbar {
+            width: 5px;
+        }
+        
+        #chatbox::-webkit-scrollbar-track {
+            background: transparent;
+        }
+        
+        #chatbox::-webkit-scrollbar-thumb {
+            background: rgba(255, 255, 255, 0.2);
+        }
+        
+        /* Transparent inputs */
+        .transparent-input {
+            background: transparent;
+            border: 1px solid rgba(255, 255, 255, 0.3);
+            color: white;
+        }
+        
+        .transparent-input:focus {
+            outline: none;
+            border-color: rgba(255, 255, 255, 0.6);
+        }
+    </style>
+</head>
+<body class="text-white overflow-x-hidden relative">
+
+    <!-- Background Video -->
+    <video autoplay muted loop id="background-video" class="fixed top-0 left-0 w-full h-full object-cover z-[-1]">
+        <source src=18069232-uhd_3840_2160_24fps.mp4 type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+
+    <!-- Navigation -->
+    <nav class="fixed w-full top-0 left-0 z-50 py-4">
+        <div class="container mx-auto px-4 flex justify-between items-center">
+            <a href="#" class="text-3xl font-bold text-glow">ClearVision</a>
+            <div class="hidden md:flex space-x-6">
+                <a href="#hero" class="hover:text-blue-400 transition duration-300">Home</a>
+                <a href="#about" class="hover:text-blue-400 transition duration-300">Mission</a>
+                <a href="#features" class="hover:text-blue-400 transition duration-300">Services</a>
+                <a href="#demo" class="hover:text-blue-400 transition duration-300">AI Demo</a>
+                <a href="#contact" class="hover:text-blue-400 transition duration-300">Contact</a>
+            </div>
+            <button class="md:hidden"><i class="fas fa-bars"></i></button>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section id="hero" class="relative min-h-screen flex items-center justify-center pt-20">
+        <div class="z-10 text-center px-4 py-20">
+            <h1 class="text-6xl md:text-8xl font-bold mb-4 text-glow">ClearVision</h1>
+            <p class="text-xl md:text-3xl mb-8 blue-glow">AI-Powered Vision Beyond Boudaries</p>
+            <div class="flex flex-col md:flex-row justify-center space-y-4 md:space-y-0 md:space-x-4">
+                <a href="#features" class="transparent-button px-8 py-4 rounded-full">Get Started</a>
+                <a href="#demo" class="transparent-button px-8 py-4 rounded-full">Explore AI Solutions</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section id="about" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-8 blue-glow">Our Mission</h2>
+            <p class="text-lg text-center max-w-3xl mx-auto mb-12">
+                At ClearVision, we are dedicated to transforming industries through cutting-edge AI and Computer Vision technologies. Our solutions empower businesses to unlock actionable insights from images and videos, driving innovation and efficiency.
+            </p>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="text-center p-6">
+                    <i class="fas fa-brain text-4xl text-blue-500 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">AI Innovation</h3>
+                    <p>Pioneering advanced AI algorithms for unparalleled accuracy.</p>
+                </div>
+                <div class="text-center p-6">
+                    <i class="fas fa-eye text-4xl text-blue-500 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Visionary Solutions</h3>
+                    <p>Transforming raw data into meaningful insights.</p>
+                </div>
+                <div class="text-center p-6">
+                    <i class="fas fa-chart-line text-4xl text-blue-500 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Scalable Impact</h3>
+                    <p>Empowering businesses of all sizes to grow smarter.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-12 blue-glow">AI-Driven Services</h2>
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="p-8 text-center">
+                    <i class="fas fa-object-group text-4xl text-blue-500 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Object Detection</h3>
+                    <p>Identify and track objects in real-time with precision.</p>
+                </div>
+                <div class="p-8 text-center">
+                    <i class="fas fa-image text-4xl text-blue-500 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Image Recognition</h3>
+                    <p>Classify and analyze images with state-of-the-art AI models.</p>
+                </div>
+                <div class="p-8 text-center">
+                    <i class="fas fa-video text-4xl text-blue-500 mb-4"></i>
+                    <h3 class="text-xl font-bold mb-2">Video Analytics</h3>
+                    <p>Extract insights from video streams for enhanced decision-making.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Section -->
+    <section id="demo" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-8 blue-glow">Live AI Showcase</h2>
+            <div class="max-w-3xl mx-auto p-8">
+                <h3 class="text-2xl font-bold mb-4">Upload Image or Video</h3>
+                <div class="border border-white border-opacity-30 rounded-lg p-8 mb-4 text-center hover:border-opacity-50 transition duration-300">
+                    <i class="fas fa-cloud-upload-alt text-3xl text-blue-400 mb-4"></i>
+                    <p class="mb-2">Drag and drop files here or</p>
+                    <input type="file" id="fileInput" class="hidden">
+                    <label for="fileInput" class="transparent-button py-2 px-4 rounded-lg cursor-pointer inline-block">Choose File</label>
+                    <p class="mt-2 text-sm text-gray-400">No file chosen</p>
+                </div>
+                <button id="processButton" class="transparent-button w-full py-3 rounded-lg">Process with AI</button>
+                <div id="output" class="mt-8 text-center hidden">
+                    <p class="text-green-400 font-bold">Results:</p>
+                    <pre id="results" class="p-4 mt-2 text-left overflow-auto border border-white border-opacity-20 rounded-lg"></pre>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Chatbot Section -->
+    <section id="chatbot" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-8 blue-glow">Ask Our AI Assistant</h2>
+            <div class="max-w-2xl mx-auto p-6">
+                <div id="chatbox" class="h-64 overflow-y-auto mb-4 p-4 border border-white border-opacity-20 rounded-lg">
+                    <div class="mb-2 text-sm">
+                        <strong>AI:</strong> Hello! How can I assist you with ClearVision's AI technology today?
+                    </div>
+                </div>
+                <div class="flex space-x-2">
+                    <input type="text" id="userInput" placeholder="Type your question..." class="transparent-input flex-grow p-3 rounded-lg">
+                    <button id="sendButton" class="transparent-button px-6 py-3 rounded-lg">Send</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section id="contact" class="py-20">
+        <div class="container mx-auto px-4">
+            <h2 class="text-4xl font-bold text-center mb-8 blue-glow">Connect Beyond Boundaries</h2>
+            <div class="max-w-2xl mx-auto p-8 text-center">
+                <p class="text-lg mb-6">
+                    Reach out to us through the following channels. We're always here to assist you.
+                </p>
+                <div class="flex justify-center space-x-8">
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition-all duration-300 transform hover:-translate-y-1">
+                        <i class="fab fa-twitter text-3xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition-all duration-300 transform hover:-translate-y-1">
+                        <i class="fab fa-linkedin text-3xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition-all duration-300 transform hover:-translate-y-1">
+                        <i class="fab fa-github text-3xl"></i>
+                    </a>
+                    <a href="#" class="text-gray-400 hover:text-blue-400 transition-all duration-300 transform hover:-translate-y-1">
+                        <i class="fas fa-envelope text-3xl"></i>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="py-8 text-center">
+        <p class="text-gray-400">&copy; 2023 ClearVision. All rights reserved. | <a href="#" class="text-blue-400 hover:text-blue-300">Terms</a> | <a href="#" class="text-blue-400 hover:text-blue-300">Privacy Policy</a></p>
+    </footer>
+
+    <!-- JavaScript for Animations and Interactivity -->
+    <script>
+        // GSAP Animations
+        gsap.from("#hero h1", { opacity: 0, y: -50, duration: 1, delay: 0.5 });
+        gsap.from("#hero p", { opacity: 0, y: 50, duration: 1, delay: 1 });
+        gsap.from("#hero a", { opacity: 0, scale: 0.5, duration: 1, delay: 1.5, stagger: 0.2 });
+        
+        // Scroll animations
+        const sections = document.querySelectorAll('section');
+        sections.forEach((section, index) => {
+            if (index > 0) { // Skip hero section
+                gsap.from(section.querySelector('h2'), {
+                    scrollTrigger: {
+                        trigger: section,
+                        start: "top 80%"
+                    },
+                    opacity: 0,
+                    y: 30,
+                    duration: 0.8
+                });
+            }
+        });
+
+        // Chatbot Functionality
+        const chatbox = document.getElementById('chatbox');
+        const userInput = document.getElementById('userInput');
+        const sendButton = document.getElementById('sendButton');
+
+        const responses = {
+            "hello": "Hello! How can I assist you with ClearVision's AI technology today?",
+            "hi": "Hi there! Welcome to ClearVision. How can I help you explore our AI solutions?",
+            "what services do you offer": "ClearVision offers cutting-edge AI services including Object Detection, Image Recognition, and Video Analytics - all with transparent, real-time processing.",
+            "how does it work": "Our AI interface processes images and videos through advanced neural networks, delivering insights with exceptional clarity.",
+            "what is clearvision": "ClearVision is an AI-powered computer vision platform that goes beyond 2099's technology standards, offering transparent analysis of visual data for businesses and researchers.",
+            "who are you": "I'm ClearVision's AI assistant, designed to help you navigate our services and answer questions about our cutting-edge vision solutions.",
+            "default": "I'm analyzing your query. Could you provide more details so I can assist you better?"
+        };
+
+        function addMessage(sender, message) {
+            const messageElement = document.createElement('div');
+            messageElement.classList.add('mb-2', 'text-sm');
+            messageElement.innerHTML = `<strong>${sender}:</strong> ${message}`;
+            chatbox.appendChild(messageElement);
+            chatbox.scrollTop = chatbox.scrollHeight;
+        }
+
+        sendButton.addEventListener('click', () => {
+            const userMessage = userInput.value.trim();
+            if (userMessage) {
+                addMessage("You", userInput.value);
+                
+                // Find response
+                let botResponse = responses["default"];
+                for (const [key, value] of Object.entries(responses)) {
+                    if (userMessage.toLowerCase().includes(key)) {
+                        botResponse = value;
+                        break;
+                    }
+                }
+                
+                setTimeout(() => addMessage("AI", botResponse), 500);
+                userInput.value = "";
+            }
+        });
+
+        userInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') sendButton.click();
+        });
+
+        // File upload handling
+        const fileInput = document.getElementById('fileInput');
+        fileInput.addEventListener('change', function() {
+            const fileLabel = this.nextElementSibling.nextElementSibling;
+            if (this.files.length) {
+                fileLabel.textContent = this.files[0].name;
+            } else {
+                fileLabel.textContent = 'No file chosen';
+            }
+        });
+
+        // Demo "Process with AI" button
+        document.getElementById('processButton').addEventListener('click', () => {
+            if (!fileInput.files.length) {
+                alert('Please upload an image or video.');
+                return;
+            }
+            
+            // Show loading
+            const button = document.getElementById('processButton');
+            const originalText = button.textContent;
+            button.textContent = "Processing...";
+            button.disabled = true;
+            
+            // Simulate processing
+            setTimeout(() => {
+                const demoResults = {
+                    "timestamp": new Date().toISOString(),
+                    "detected_objects": [
+                        {"class": "person", "confidence": 0.98, "location": [120, 80, 210, 380]},
+                        {"class": "car", "confidence": 0.96, "location": [450, 200, 650, 320]}
+                    ],
+                    "scene_analysis": {
+                        "setting": "urban street",
+                        "time_of_day": "daytime",
+                        "weather": "clear"
+                    },
+                    "processing_time_ms": 267
+                };
+                
+                document.getElementById('results').textContent = JSON.stringify(demoResults, null, 2);
+                document.getElementById('output').classList.remove('hidden');
+                
+                // Reset button
+                button.textContent = originalText;
+                button.disabled = false;
+                
+                // Animate results
+                gsap.from("#output", { opacity: 0, y: 20, duration: 0.5 });
+            }, 2000);
+        });
+    </script>
+</body>
+</html>
